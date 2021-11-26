@@ -1,0 +1,35 @@
+# Set account to the credential admin account name
+# e.g. If account is at https://credential.workday.com/wday/applications, set account to "wday"
+account: gmsinc
+
+# Platform API endpoints. These values should not need to be changed.
+tokenEndpoint: https://accounts.workday.com/oauth2/v1/token
+offersEndpoint: https://credentials.id.workday.com/v1/offers
+receiptEndpoint: https://credentials.id.workday.com/v1/receipts
+revocationEndpoint: https://credentials.id.workday.com/v1/revoke-credentials
+credPlatformEndpoint: https://credentials.id.workday.com
+
+# OauthClient details for an application configured as an Issuer
+issuer:
+  clientId: M2FlYTY4N2EtMGExMi00ZWIyLWEzNzMtYWQ4YWIxOGU5N2I1
+  keyFile: issuerKeys.txt
+
+# Oauth client details for an application set up as a Verifier
+verifier:
+  clientId: M2FlYTY4N2EtMGExMi00ZWIyLWEzNzMtYWQ4YWIxOGU5N2I1
+  keyFile: verifierKeys.txt
+
+# List of credential definitions
+#
+# This is the Credential Template ID under Credentials on the credential admin site
+credentialDefinitions:
+  address: c2ff79ee-3d27-4f22-ba4d-7b3618ae79fe
+
+# List of proof requests
+#
+# Each proof request is structured as a name that can be used to look up the details from reading this config file
+# Only the id is used by the platform
+proofRequests:
+  verifier:
+    id: 85a4082c-e417-41a0-a1a0-5e0d5ffbabdc
+    name: Verify Boulder Address (RefApp)
