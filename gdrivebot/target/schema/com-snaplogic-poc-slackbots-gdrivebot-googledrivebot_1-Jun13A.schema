@@ -1,0 +1,558 @@
+{
+  "id" : "com-snaplogic-poc-slackbots-gdrivebot-googledrivebot_1-Jun13A",
+  "type" : "object",
+  "description" : "A schema for a snap",
+  "description" : "The common schema for snaps.",
+  "properties" : {
+    "class_id" : {
+      "description" : "",
+      "type" : "string",
+      "pattern" : "^[a-z]+-[^_]*$",
+      "required" : true
+    },
+    "class_fqid" : {
+      "description" : "",
+      "type" : "string",
+      "pattern" : "^[a-z]+-[^_]*_[0-9]+-[a-zA-Z0-9]*",
+      "required" : true
+    },
+    "class_version" : {
+      "description" : "snap version",
+      "type" : "number",
+      "required" : true,
+      "minimum" : 1,
+      "default" : 2
+    },
+    "class_build_tag" : {
+      "description" : "snap build tag",
+      "type" : "string",
+      "required" : true,
+      "default" : "SNAPSHOT"
+    },
+    "schema_version" : {
+      "description" : "version of snap schema",
+      "type" : "number",
+      "required" : false,
+      "minimum" : 2,
+      "default" : 2
+    },
+    "client_id" : {
+      "type" : "string"
+    },
+    "instance_id" : {
+      "type" : "string",
+      "pattern" : "^x[0-9]+|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+      "required" : true,
+      "default" : "00000000-0000-0000-0000-000000000000"
+    },
+    "instance_fqid" : {
+      "type" : "string",
+      "pattern" : "^x[0-9]+_[0-9]+|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}_[0-9]+$",
+      "required" : true,
+      "default" : "00000000-0000-0000-0000-000000000000_1"
+    },
+    "instance_version" : {
+      "type" : "number",
+      "required" : true,
+      "minimum" : 1,
+      "default" : 1
+    },
+    "class_map" : {
+      "description" : "Stores all the immutable definitions.",
+      "extends" : {
+        "$ref" : "com-snaplogic-snap_2#propertycategories"
+      },
+      "properties" : {
+        "account" : {
+          "required" : true,
+          "properties" : {
+            "account_ref" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              },
+              "properties" : {
+                "ref_id" : {
+                  "required" : true,
+                  "extends" : {
+                    "$ref" : "com-snaplogic-snap_2#propertyextensions"
+                  }
+                },
+                "ref_class_id" : {
+                  "required" : true,
+                  "extends" : {
+                    "$ref" : "com-snaplogic-snap_2#propertyextensions"
+                  }
+                },
+                "label" : {
+                  "required" : true,
+                  "extends" : {
+                    "$ref" : "com-snaplogic-snap_2#propertyextensions"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "settings" : {
+          "properties" : {
+            "execution_mode" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "executable_during_suggest" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "keyBotToken" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "keyAppToken" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "keyExecTimeout" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            }
+          }
+        }
+      }
+    },
+    "property_map" : {
+      "extends" : {
+        "$ref" : "com-snaplogic-snap_2#instancecategories"
+      },
+      "required" : true,
+      "properties" : {
+        "account" : {
+          "required" : true,
+          "properties" : {
+            "account_ref" : {
+              "type" : "object",
+              "properties" : {
+                "value" : {
+                  "type" : "object",
+                  "default" : { },
+                  "required" : true,
+                  "format" : "",
+                  "additionalProperties" : false,
+                  "properties" : {
+                    "ref_id" : {
+                      "extends" : {
+                        "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+                      },
+                      "properties" : {
+                        "value" : {
+                          "required" : true,
+                          "format" : "",
+                          "type" : "string"
+                        }
+                      },
+                      "required" : true
+                    },
+                    "ref_class_id" : {
+                      "extends" : {
+                        "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+                      },
+                      "properties" : {
+                        "value" : {
+                          "enum" : [ "com-snaplogic-poc-slackbots-gdrivebot-googledriveaccount" ],
+                          "required" : true,
+                          "format" : "",
+                          "type" : "string"
+                        }
+                      },
+                      "required" : true
+                    },
+                    "label" : {
+                      "extends" : {
+                        "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+                      },
+                      "properties" : {
+                        "value" : {
+                          "required" : true,
+                          "format" : "",
+                          "type" : "string"
+                        }
+                      },
+                      "required" : true
+                    }
+                  }
+                }
+              },
+              "required" : true
+            }
+          }
+        },
+        "settings" : {
+          "additionalProperties" : false,
+          "properties" : {
+            "execution_mode" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "default" : "Execute only",
+                  "enum" : [ "Validate & Execute", "Execute only", "Disabled" ],
+                  "format" : "",
+                  "type" : "string"
+                }
+              }
+            },
+            "executable_during_suggest" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "default" : false,
+                  "format" : "",
+                  "type" : "boolean"
+                }
+              }
+            },
+            "keyBotToken" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "expression" : true,
+                  "required" : true,
+                  "format" : "",
+                  "type" : "string"
+                }
+              },
+              "required" : true
+            },
+            "keyAppToken" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "expression" : true,
+                  "required" : true,
+                  "format" : "",
+                  "type" : "string"
+                }
+              },
+              "required" : true
+            },
+            "keyExecTimeout" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "expression" : true,
+                  "default" : 0,
+                  "format" : "",
+                  "type" : "integer"
+                }
+              }
+            }
+          },
+          "required" : true
+        }
+      }
+    }
+  },
+  "class_map" : {
+    "property_category_list" : [ "settings", "input", "error", "output", "account", "info" ]
+  },
+  "property_map" : {
+    "view_serial" : 100,
+    "settings" : { }
+  },
+  "description" : "The common schema for snaps.",
+  "class_map" : {
+    "property_category_list" : [ "settings", "input", "error", "output", "account", "info" ],
+    "info" : {
+      "title" : {
+        "ui_row_count" : 1,
+        "value" : "Google Drive Bot",
+        "info_text" : "Class title shown for the Snap",
+        "sensitivity_level" : "public",
+        "label_text" : "Title",
+        "priority_index" : 30,
+        "display_type" : "visible",
+        "anchor" : false
+      },
+      "purpose" : {
+        "ui_row_count" : 3,
+        "value" : "Upload files from slack to google drive",
+        "info_text" : "The description of the Snap",
+        "sensitivity_level" : "public",
+        "label_text" : "Purpose",
+        "priority_index" : 40,
+        "display_type" : "visible",
+        "anchor" : false,
+        "doc_uri" : "http://yourdocslinkhere.com"
+      },
+      "snap_pack_version" : {
+        "ui_row_count" : 1,
+        "value" : 1,
+        "info_text" : "The version of the Snap pack to which the Snap belongs.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap-pack version",
+        "priority_index" : 70,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_pack_build_number" : {
+        "ui_row_count" : 1,
+        "value" : "Jun13A",
+        "info_text" : "The build number of the Snap pack to which the Snap belongs.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap-pack build-number",
+        "priority_index" : 60,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_pack_fqid" : {
+        "ui_row_count" : 1,
+        "value" : "spreadsheet-snap-1-Jun13A.zip",
+        "info_text" : "The fully qualified id of Snap pack to which the Snap belongs.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap-pack fqid",
+        "priority_index" : 65,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_pack_url" : {
+        "ui_row_count" : 1,
+        "value" : "$SNAP_HOME/spreadsheet/target/spreadsheet-build",
+        "info_text" : "The URL of the snap pack, it can be relative.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap-pack URL",
+        "priority_index" : 68,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_pack_name" : {
+        "ui_row_count" : 1,
+        "value" : "spreadsheet",
+        "info_text" : "The name of the Snap pack to which the Snap belongs.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap-pack name",
+        "priority_index" : 66,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "sdk_version" : {
+        "ui_row_count" : 1,
+        "value" : 4.0,
+        "info_text" : "The SDK version of the Snap",
+        "sensitivity_level" : "public",
+        "label_text" : "SDK version",
+        "priority_index" : 100,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "cc_version" : {
+        "ui_row_count" : 1,
+        "value" : 4.0,
+        "info_text" : "The container version of the Snap",
+        "sensitivity_level" : "public",
+        "label_text" : "Container version",
+        "priority_index" : 90,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_class_name" : {
+        "ui_row_count" : 1,
+        "value" : "com.snaplogic.poc.slackbots.gdrivebot.GoogleDriveBot",
+        "info_text" : "The name of the Snap class.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap class name",
+        "priority_index" : 69,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "implemented_runtimes" : {
+        "ui_row_count" : 1,
+        "value" : [ "standard" ],
+        "info_text" : "Compatible runtimes",
+        "sensitivity_level" : "public",
+        "label_text" : "Compatible runtimes",
+        "priority_index" : 15,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_author" : {
+        "ui_row_count" : 2,
+        "value" : "SnapLogic",
+        "info_text" : "Author of the Snap",
+        "sensitivity_level" : "public",
+        "label_text" : "Developer",
+        "priority_index" : 50,
+        "display_type" : "visible",
+        "anchor" : false
+      },
+      "class_fqid" : {
+        "ui_row_count" : 2,
+        "value" : "com-snaplogic-poc-slackbots-gdrivebot-googledrivebot_1-Jun13A",
+        "info_text" : "The unique identifier of the Snap",
+        "sensitivity_level" : "public",
+        "label_text" : "Class FQID",
+        "priority_index" : 80,
+        "display_type" : "visible",
+        "anchor" : false
+      },
+      "label" : {
+        "ui_row_count" : 1,
+        "info_text" : "User provided label for instance",
+        "sensitivity_level" : "public",
+        "label_text" : "Label",
+        "priority_index" : 10,
+        "display_type" : "visible",
+        "anchor" : false
+      },
+      "notes" : {
+        "ui_row_count" : 8,
+        "info_text" : "User provided long notes for Snap instance",
+        "sensitivity_level" : "public",
+        "label_text" : "Notes",
+        "priority_index" : 20,
+        "display_type" : "visible",
+        "anchor" : false
+      }
+    },
+    "input" : {
+      "view_map" : {
+        "document" : {
+          "min_views" : 0,
+          "max_views" : 0
+        }
+      }
+    },
+    "output" : {
+      "view_map" : {
+        "document" : {
+          "min_views" : 0,
+          "max_views" : 1
+        }
+      }
+    },
+    "error" : {
+      "view_map" : {
+        "document" : {
+          "min_views" : 0,
+          "max_views" : 1
+        }
+      },
+      "error_behavior" : {
+        "ui_row_count" : 1,
+        "info_text" : "Determines if the snap should fail, continue (write to error view) or ignore errors",
+        "sensitivity_level" : "public",
+        "label_text" : "Error behavior",
+        "priority_index" : 40,
+        "display_type" : "visible",
+        "anchor" : false
+      }
+    },
+    "category" : "write",
+    "account" : {
+      "account_ref" : {
+        "info_text" : "Defines the account reference",
+        "reference_type" : "account",
+        "label_text" : "Account reference",
+        "display_type" : "reference",
+        "anchor" : false,
+        "ref_id" : {
+          "info_text" : "The id of the reference.",
+          "label_text" : "Reference Id",
+          "priority_index" : 20,
+          "anchor" : false
+        },
+        "ref_class_id" : {
+          "info_text" : "The class id of the reference.",
+          "label_text" : "Reference Class Id",
+          "priority_index" : 30,
+          "anchor" : false
+        },
+        "label" : {
+          "info_text" : "Select an account for the snap.",
+          "label_text" : "Label",
+          "priority_index" : 10,
+          "anchor" : false
+        }
+      }
+    },
+    "settings" : {
+      "execution_mode" : {
+        "info_text" : "Controls whether or not a snap executes",
+        "label_text" : "Snap Execution",
+        "priority_index" : 1010,
+        "anchor" : false
+      },
+      "executable_during_suggest" : {
+        "info_text" : "Controls whether or not a snap executes",
+        "label_text" : "Snap Execution",
+        "priority_index" : 1010,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "keyBotToken" : {
+        "info_text" : "Bot token of the app to be used",
+        "sensitivity_level" : "high",
+        "label_text" : "Slack Bot Token",
+        "priority_index" : 10,
+        "display_type" : "password",
+        "anchor" : false
+      },
+      "keyAppToken" : {
+        "info_text" : "App token of the slack app enabled in socket mode",
+        "sensitivity_level" : "high",
+        "label_text" : "Slack App Token",
+        "priority_index" : 20,
+        "display_type" : "password",
+        "anchor" : false
+      },
+      "keyExecTimeout" : {
+        "info_text" : "No of seconds this snap is supposed to execute for (An empty or zero or negative value makes it run infinitely). Min positive value has to be 60 seconds.",
+        "label_text" : "Execution Timeout (seconds)",
+        "priority_index" : 30,
+        "anchor" : false
+      }
+    }
+  },
+  "property_map" : {
+    "view_serial" : 100,
+    "settings" : {
+      "execution_mode" : {
+        "value" : "Execute only"
+      },
+      "executable_during_suggest" : {
+        "value" : false
+      },
+      "keyExecTimeout" : {
+        "value" : 0
+      }
+    },
+    "account" : {
+      "account_ref" : {
+        "value" : { }
+      }
+    },
+    "error" : {
+      "error_behavior" : {
+        "value" : "fail"
+      }
+    }
+  }
+}

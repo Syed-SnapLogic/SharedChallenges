@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo file="/home/gaian/SyedsWorld/SnapLogic/PoCs/gdrivebot/target/classes/build.properties">build_number=Jun13A
+                                    snap_pack_version=1
+                                    snap_pack_fqid=spreadsheet-snap-1-Jun13A.zip
+                                    snap_pack_url=$SNAP_HOME/spreadsheet/target/spreadsheet-build
+                                    snap_pack_name=${NAME}</echo>
+</target>
+</project>

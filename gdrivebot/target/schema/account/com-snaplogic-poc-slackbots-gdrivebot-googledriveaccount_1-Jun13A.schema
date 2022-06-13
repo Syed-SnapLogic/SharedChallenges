@@ -1,0 +1,791 @@
+{
+  "id" : "com-snaplogic-poc-slackbots-gdrivebot-googledriveaccount_1-Jun13A",
+  "type" : "object",
+  "description" : "A schema for a snap",
+  "description" : "The common schema for accounts.",
+  "properties" : {
+    "class_id" : {
+      "description" : "",
+      "type" : "string",
+      "pattern" : "^[a-z]+-[^_]*$",
+      "required" : true
+    },
+    "class_fqid" : {
+      "description" : "",
+      "type" : "string",
+      "pattern" : "^[a-z]+-[^_]*_[0-9]+-[a-zA-Z0-9]*",
+      "required" : true
+    },
+    "class_version" : {
+      "description" : "snap version",
+      "type" : "number",
+      "required" : true,
+      "minimum" : 1,
+      "default" : 2
+    },
+    "class_build_tag" : {
+      "description" : "snap build tag",
+      "type" : "string",
+      "required" : true,
+      "default" : "SNAPSHOT"
+    },
+    "schema_version" : {
+      "description" : "version of snap account schema",
+      "type" : "number",
+      "required" : false,
+      "minimum" : 2,
+      "default" : 2
+    },
+    "instance_id" : {
+      "type" : "string",
+      "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+      "required" : true,
+      "default" : "00000000-0000-0000-0000-000000000000"
+    },
+    "instance_fqid" : {
+      "type" : "string",
+      "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}_[0-9]+$",
+      "required" : true,
+      "default" : "00000000-0000-0000-0000-000000000000_1"
+    },
+    "instance_version" : {
+      "type" : "number",
+      "required" : true,
+      "minimum" : 1,
+      "default" : 1
+    },
+    "class_map" : {
+      "description" : "Stores all the immutable definitions.",
+      "extends" : {
+        "$ref" : "com-snaplogic-snap_2#accountpropertycategories"
+      },
+      "properties" : {
+        "settings" : {
+          "properties" : {
+            "client_id" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "client_secret" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "access_token" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "refresh_token" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "access_token_expiration" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "auth_endpoint" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "token_endpoint" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "grant_type" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "sendClientInBody" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "token_endpoint_config" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              },
+              "properties" : {
+                "header" : {
+                  "required" : true,
+                  "type" : "object",
+                  "properties" : {
+                    "tokenParam" : {
+                      "required" : true,
+                      "extends" : {
+                        "$ref" : "com-snaplogic-snap_2#propertyextensions"
+                      }
+                    },
+                    "tokenParamValue" : {
+                      "required" : true,
+                      "extends" : {
+                        "$ref" : "com-snaplogic-snap_2#propertyextensions"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "auth_endpoint_config" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              },
+              "properties" : {
+                "access_type" : {
+                  "required" : true,
+                  "extends" : {
+                    "$ref" : "com-snaplogic-snap_2#propertyextensions"
+                  }
+                },
+                "approval_prompt" : {
+                  "required" : true,
+                  "extends" : {
+                    "$ref" : "com-snaplogic-snap_2#propertyextensions"
+                  }
+                },
+                "scope" : {
+                  "required" : true,
+                  "extends" : {
+                    "$ref" : "com-snaplogic-snap_2#propertyextensions"
+                  }
+                }
+              }
+            },
+            "autoRefreshToken" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "authorize" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "refresh" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            },
+            "oauth2JsonRestResponse" : {
+              "required" : true,
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#propertyextensions"
+              }
+            }
+          }
+        }
+      }
+    },
+    "property_map" : {
+      "extends" : {
+        "$ref" : "com-snaplogic-snap_2#accountinstancecategories"
+      },
+      "required" : true,
+      "properties" : {
+        "settings" : {
+          "additionalProperties" : false,
+          "properties" : {
+            "client_id" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "default" : "641557182446-rgnujh4f1nm1pvdd1rsqum7ehep574lf.apps.googleusercontent.com",
+                  "minLength" : 1,
+                  "required" : true,
+                  "format" : "",
+                  "type" : "string"
+                }
+              },
+              "required" : true
+            },
+            "client_secret" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "default" : "QtNzjPUrnQfJjKgW3l3JdkQN",
+                  "minLength" : 1,
+                  "required" : true,
+                  "format" : "",
+                  "type" : "string"
+                }
+              },
+              "required" : true
+            },
+            "access_token" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "minLength" : 1,
+                  "required" : true,
+                  "format" : "",
+                  "type" : "string",
+                  "readonly" : true
+                }
+              },
+              "required" : true
+            },
+            "refresh_token" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "condition" : "$.settings.hasOwnProperty('grant_type') && $.settings.grant_type.value != 'client_credentials'",
+                  "format" : "",
+                  "type" : "string",
+                  "readonly" : true
+                }
+              }
+            },
+            "access_token_expiration" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "format" : "",
+                  "type" : "string",
+                  "readonly" : true
+                }
+              }
+            },
+            "auth_endpoint" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "default" : "https://accounts.google.com/o/oauth2/auth",
+                  "required" : true,
+                  "format" : "",
+                  "type" : "string",
+                  "readonly" : true
+                }
+              },
+              "required" : true
+            },
+            "token_endpoint" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "default" : "https://oauth2.googleapis.com/token",
+                  "required" : true,
+                  "format" : "",
+                  "type" : "string",
+                  "readonly" : true
+                }
+              },
+              "required" : true
+            },
+            "grant_type" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "default" : "authorization_code",
+                  "enum" : [ "authorization_code", "client_credentials", "password" ],
+                  "format" : "",
+                  "type" : "string"
+                }
+              }
+            },
+            "sendClientInBody" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "default" : false,
+                  "format" : "",
+                  "type" : "boolean"
+                }
+              }
+            },
+            "token_endpoint_config" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "type" : "array",
+                  "items" : [ {
+                    "properties" : {
+                      "tokenParam" : {
+                        "extends" : {
+                          "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+                        },
+                        "properties" : {
+                          "value" : {
+                            "format" : "",
+                            "type" : "string"
+                          }
+                        }
+                      },
+                      "tokenParamValue" : {
+                        "extends" : {
+                          "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+                        },
+                        "properties" : {
+                          "value" : {
+                            "format" : "",
+                            "type" : "string"
+                          }
+                        }
+                      }
+                    }
+                  } ],
+                  "format" : ""
+                }
+              }
+            },
+            "auth_endpoint_config" : {
+              "type" : "object",
+              "properties" : {
+                "value" : {
+                  "type" : "object",
+                  "default" : {
+                    "auth_endpoint_config" : {
+                      "value" : {
+                        "access_type" : {
+                          "value" : "offline"
+                        },
+                        "approval_prompt" : {
+                          "value" : "auto"
+                        },
+                        "scope" : {
+                          "value" : "https://www.googleapis.com/auth/drive"
+                        }
+                      }
+                    }
+                  },
+                  "format" : "",
+                  "additionalProperties" : false,
+                  "properties" : {
+                    "access_type" : {
+                      "extends" : {
+                        "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+                      },
+                      "properties" : {
+                        "value" : {
+                          "format" : "",
+                          "type" : "string",
+                          "readonly" : true
+                        }
+                      }
+                    },
+                    "approval_prompt" : {
+                      "extends" : {
+                        "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+                      },
+                      "properties" : {
+                        "value" : {
+                          "enum" : [ "auto", "force" ],
+                          "format" : "",
+                          "type" : "string"
+                        }
+                      }
+                    },
+                    "scope" : {
+                      "extends" : {
+                        "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+                      },
+                      "properties" : {
+                        "value" : {
+                          "format" : "",
+                          "type" : "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "autoRefreshToken" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "format" : "",
+                  "type" : "boolean"
+                }
+              }
+            },
+            "authorize" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "format" : "",
+                  "type" : "string"
+                }
+              }
+            },
+            "refresh" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "format" : "",
+                  "type" : "string"
+                }
+              }
+            },
+            "oauth2JsonRestResponse" : {
+              "extends" : {
+                "$ref" : "com-snaplogic-snap_2#instancepropertyextensions"
+              },
+              "properties" : {
+                "value" : {
+                  "format" : "",
+                  "type" : "string",
+                  "readonly" : true
+                }
+              }
+            }
+          },
+          "required" : true
+        }
+      }
+    }
+  },
+  "class_map" : {
+    "property_category_list" : [ "info", "settings" ]
+  },
+  "property_map" : {
+    "view_serial" : 100
+  },
+  "description" : "The common schema for accounts.",
+  "class_map" : {
+    "property_category_list" : [ "info", "settings" ],
+    "info" : {
+      "title" : {
+        "ui_row_count" : 1,
+        "value" : "Google Drive OAuth2 Account",
+        "info_text" : "Class title shown for the Snap",
+        "sensitivity_level" : "public",
+        "label_text" : "Title",
+        "priority_index" : 30,
+        "display_type" : "visible",
+        "anchor" : false
+      },
+      "snap_pack_version" : {
+        "ui_row_count" : 1,
+        "value" : 1,
+        "info_text" : "The version of the Snap pack to which the Snap belongs.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap-pack version",
+        "priority_index" : 70,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_pack_build_number" : {
+        "ui_row_count" : 1,
+        "value" : "Jun13A",
+        "info_text" : "The build number of the Snap pack to which the Snap belongs.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap-pack build-number",
+        "priority_index" : 60,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_pack_fqid" : {
+        "ui_row_count" : 1,
+        "value" : "spreadsheet-snap-1-Jun13A.zip",
+        "info_text" : "The fully qualified id of Snap pack to which the Snap belongs.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap-pack fqid",
+        "priority_index" : 65,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_pack_url" : {
+        "ui_row_count" : 1,
+        "value" : "$SNAP_HOME/spreadsheet/target/spreadsheet-build",
+        "info_text" : "The URL of the snap pack, it can be relative.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap-pack URL",
+        "priority_index" : 68,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_pack_name" : {
+        "ui_row_count" : 1,
+        "value" : "spreadsheet",
+        "info_text" : "The name of the Snap pack to which the Snap belongs.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap-pack name",
+        "priority_index" : 66,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "sdk_version" : {
+        "ui_row_count" : 1,
+        "value" : 4.0,
+        "info_text" : "The SDK version of the Snap",
+        "sensitivity_level" : "public",
+        "label_text" : "SDK version",
+        "priority_index" : 100,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "cc_version" : {
+        "ui_row_count" : 1,
+        "value" : 4.0,
+        "info_text" : "The container version of the Snap",
+        "sensitivity_level" : "public",
+        "label_text" : "Container version",
+        "priority_index" : 90,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "snap_class_name" : {
+        "ui_row_count" : 1,
+        "value" : "com.snaplogic.poc.slackbots.gdrivebot.GoogleDriveAccount",
+        "info_text" : "The name of the Snap class.",
+        "sensitivity_level" : "public",
+        "label_text" : "Snap class name",
+        "priority_index" : 69,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "class_fqid" : {
+        "ui_row_count" : 2,
+        "value" : "com-snaplogic-poc-slackbots-gdrivebot-googledriveaccount_1-Jun13A",
+        "info_text" : "The unique identifier of the Snap",
+        "sensitivity_level" : "public",
+        "label_text" : "Class FQID",
+        "priority_index" : 80,
+        "display_type" : "visible",
+        "anchor" : false
+      },
+      "label" : {
+        "ui_row_count" : 1,
+        "info_text" : "User provided label for instance",
+        "sensitivity_level" : "public",
+        "label_text" : "Label",
+        "priority_index" : 10,
+        "display_type" : "visible",
+        "anchor" : false
+      },
+      "notes" : {
+        "ui_row_count" : 8,
+        "info_text" : "User provided long notes for Account instance",
+        "sensitivity_level" : "public",
+        "label_text" : "Notes",
+        "priority_index" : 20,
+        "display_type" : "visible",
+        "anchor" : false
+      }
+    },
+    "category" : "oauth2",
+    "account_level" : "snap",
+    "account_mode" : "standard",
+    "is_validatable" : true,
+    "settings" : {
+      "client_id" : {
+        "info_text" : "The client ID can be created by following the steps of the application provider. An example and its meaning can be found here https://developers.google.com/accounts/docs/OAuth2",
+        "label_text" : "Client ID",
+        "priority_index" : 10,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "client_secret" : {
+        "info_text" : "The client secret can be created by following the steps of the application provider. An example and its meaning can be found here https://developers.google.com/accounts/docs/OAuth2. The client secret will be securely stored in SnapLogic's cloud.",
+        "sensitivity_level" : "high",
+        "label_text" : "Client secret",
+        "priority_index" : 20,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "access_token" : {
+        "info_text" : "The access token for the application. The retrieval of the access token is done when setting up the account for the endpoint. There, the OAuth2 flow will be executed and the resulting access token will be stored in this property. The access token might be refreshable, in that case an optional refresh token can be stored. The user must get a new access token if the access token has expired and no refresh token was defined or both the access and the refresh token have expired",
+        "sensitivity_level" : "high",
+        "label_text" : "Access token",
+        "priority_index" : 30,
+        "anchor" : false
+      },
+      "refresh_token" : {
+        "info_text" : "The refresh token for the application. The retrieval of the refresh token is done when setting up the account for the endpoint. There, the OAuth2 flow will be executed and the resulting refresh token can be stored in this property. If the refresh token is stored, then the access token can be refreshed automatically before it expires.",
+        "sensitivity_level" : "high",
+        "label_text" : "Refresh token",
+        "priority_index" : 40,
+        "anchor" : false
+      },
+      "access_token_expiration" : {
+        "info_text" : "The access token expiration value.",
+        "label_text" : "Access token expiration",
+        "priority_index" : 50,
+        "anchor" : false
+      },
+      "auth_endpoint" : {
+        "info_text" : "Authorization endpoint to authorize the application.",
+        "label_text" : "OAuth2 Endpoint",
+        "priority_index" : 60,
+        "anchor" : false
+      },
+      "token_endpoint" : {
+        "info_text" : "Token endpoint to get the access token.",
+        "label_text" : "OAuth2 Token",
+        "priority_index" : 70,
+        "anchor" : false
+      },
+      "grant_type" : {
+        "info_text" : "Grant Type that needs to be used for Authentication",
+        "label_text" : "Grant Type",
+        "priority_index" : 80,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "sendClientInBody" : {
+        "info_text" : "Still send the Client ID in the request body when using the authorizaiton_code grant type",
+        "label_text" : "Send Client ID in request body",
+        "priority_index" : 90,
+        "display_type" : "hidden",
+        "anchor" : false
+      },
+      "token_endpoint_config" : {
+        "info_text" : "Provides custom properties for the OAuth2 token endpoint.",
+        "label_text" : "Token endpoint config",
+        "priority_index" : 160,
+        "display_type" : "visible",
+        "anchor" : false,
+        "ui_row_count" : 1,
+        "sensitivity_level" : "public",
+        "header" : {
+          "tokenParam" : {
+            "info_text" : "Defines an optional token endpoint parameter.",
+            "label_text" : "Token endpoint parameter",
+            "priority_index" : 10,
+            "anchor" : false
+          },
+          "tokenParamValue" : {
+            "info_text" : "Defines an optional token endpoint parameter value.",
+            "label_text" : "Token endpoint parameter value",
+            "priority_index" : 20,
+            "anchor" : false
+          }
+        }
+      },
+      "auth_endpoint_config" : {
+        "info_text" : "Provides custom properties for the OAuth2 auth endpoint.",
+        "label_text" : "Auth endpoint config",
+        "priority_index" : 110,
+        "anchor" : false,
+        "access_type" : {
+          "info_text" : "Indicates whether the Snap needs to access a Google API when the user is not present at the browser. The property value \"offline\" results in obtaining a refresh token the first time authorization has been received.",
+          "label_text" : "Access Type",
+          "priority_index" : 10,
+          "anchor" : false
+        },
+        "approval_prompt" : {
+          "info_text" : "Indicates whether the user should be re-prompted for offline consent to receive a new refresh token. The property value \"auto\" will only display the consent prompt on the first time through the OAuth 2.0 authorization sequence. To manually acquire a new refresh token, set this property value to \"force\" and re-authorize.",
+          "label_text" : "Approval Prompt",
+          "priority_index" : 20,
+          "anchor" : false
+        },
+        "scope" : {
+          "info_text" : "The scope for the applications execution. As an example, the snap could define that only a read of data by the application should be allowed.",
+          "label_text" : "Application scope",
+          "priority_index" : 30,
+          "anchor" : false
+        }
+      },
+      "autoRefreshToken" : {
+        "info_text" : "Refreshes the token automatically using the refresh token if the property is enabled. Otherwise the token might expire and will not be automatically refreshed.",
+        "label_text" : "Auto-refresh token",
+        "priority_index" : 120,
+        "anchor" : false
+      },
+      "authorize" : {
+        "info_text" : "Starts the OAuth authorization flow.",
+        "label_text" : "Authorize",
+        "priority_index" : 130,
+        "display_type" : "action",
+        "anchor" : false
+      },
+      "refresh" : {
+        "info_text" : "Refresh access token",
+        "label_text" : "Refresh",
+        "priority_index" : 140,
+        "display_type" : "action",
+        "anchor" : false
+      },
+      "oauth2JsonRestResponse" : {
+        "info_text" : "The purpose of this property is to cache the entire JSON response received after successful OAuth2 authentication.  Its cached as a string value.  It can be used by developers to handle multiple OAuth2 tokens (if any).",
+        "sensitivity_level" : "high",
+        "label_text" : "Hidden OAuth2 JSON Response",
+        "priority_index" : 150,
+        "display_type" : "hidden",
+        "anchor" : false
+      }
+    }
+  },
+  "property_map" : {
+    "view_serial" : 100,
+    "settings" : {
+      "client_id" : {
+        "value" : "641557182446-rgnujh4f1nm1pvdd1rsqum7ehep574lf.apps.googleusercontent.com"
+      },
+      "client_secret" : {
+        "value" : "QtNzjPUrnQfJjKgW3l3JdkQN"
+      },
+      "auth_endpoint" : {
+        "value" : "https://accounts.google.com/o/oauth2/auth"
+      },
+      "token_endpoint" : {
+        "value" : "https://oauth2.googleapis.com/token"
+      },
+      "grant_type" : {
+        "value" : "authorization_code"
+      },
+      "sendClientInBody" : {
+        "value" : false
+      },
+      "auth_endpoint_config" : {
+        "value" : {
+          "access_type" : {
+            "value" : "offline"
+          },
+          "approval_prompt" : {
+            "value" : "auto"
+          },
+          "scope" : {
+            "value" : "https://www.googleapis.com/auth/drive"
+          }
+        }
+      }
+    }
+  }
+}
