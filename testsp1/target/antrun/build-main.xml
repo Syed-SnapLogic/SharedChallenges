@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo file="/home/gaian/SyedTemp/testsnappacks/testsp1/target/classes/build.properties">build_number=hisyed2
+                                    snap_pack_version=1
+                                    snap_pack_fqid=testsp1-snap-1-hisyed2.zip
+                                    snap_pack_url=$SNAP_HOME/testsp1/target/testsp1-build
+                                    snap_pack_name=${NAME}</echo>
+</target>
+</project>

@@ -1,0 +1,14 @@
+com/snaplogic/snaps/testsp1/DocGeneratorTest.class
+com/snaplogic/snaps/testsp1/SnapWithAccountTest$StubExampleAccount.class
+com/snaplogic/snaps/testsp1/SchemaExampleTest.class
+com/snaplogic/snaps/testsp1/SuggestTest.class
+com/snaplogic/snaps/testsp1/CurrencyConverterTest.class
+com/snaplogic/snaps/testsp1/SingleDocGeneratorTest.class
+com/snaplogic/snaps/testsp1/DocConsumerTest.class
+com/snaplogic/snaps/testsp1/CurrencyConverterTest$ExchangeRatesSupplier.class
+com/snaplogic/snaps/testsp1/CurrencyConverterTest$FakeForeignExchangeInjector.class
+com/snaplogic/snaps/testsp1/PropertyTypesTest.class
+com/snaplogic/snaps/testsp1/CharacterCounterTest.class
+com/snaplogic/snaps/testsp1/CurrencyConverterTest$FakeForeignExchange.class
+com/snaplogic/snaps/testsp1/TwoInputsTwoOutputsTest.class
+com/snaplogic/snaps/testsp1/SnapWithAccountTest.class
